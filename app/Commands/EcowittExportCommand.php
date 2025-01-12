@@ -143,15 +143,15 @@ class EcowittExportCommand extends Command
 
                 // wind_speed in m/s
                 $this->debug('fetch windspeedmph (kmh)');
-                $windSpeed = $this->getData($ecowitt, 'list.wind.list.windspeedmph'); // this key is called mph but units in data struct is kmh :/
+                $windSpeed = $this->getData($ecowitt, 'list.wind_speed.list.windspeedmph'); // this key is called mph but units in data struct is kmh :/
 
                 // windGust
                 $this->debug('fetch windgustmph (kmh)');
-                $windGust = $this->getData($ecowitt, 'list.wind.list.windgustmph');  // wind gust key called mph but units in data struct is kmh
+                $windGust = $this->getData($ecowitt, 'list.wind_speed.list.windgustmph');  // wind gust key called mph but units in data struct is kmh
 
                 // winddir in degree
                 $this->debug('fetch winddir');
-                $windDir = $this->getData($ecowitt, 'list.wind.list.winddir');
+                $windDir = $this->getData($ecowitt, 'list.winddir.list.winddir');
 
                 // pressure relative in hPa
                 $this->debug('fetch baromrelin');
