@@ -79,7 +79,7 @@ class EcowittExportCommand extends Command
                         'ousaite_session' => $session_id,
                     ], 'www.ecowitt.net')
                     ->asForm()
-                    ->post('http://webapi.www.ecowitt.net/index/get_data', [
+                    ->post('https://www.ecowitt.net/index/get_data', [
                         'device_id' => $deviceId,
                         'is_list' => 0,
                         'mode' => 0,
@@ -247,7 +247,7 @@ class EcowittExportCommand extends Command
                 'ousaite_session' => $session_id,
             ], 'www.ecowitt.net')
             ->asForm()
-            ->post('http://www.ecowitt.net/index/get_devices', [
+            ->post('https://www.ecowitt.net/index/get_devices', [
                 'uid' => '',
                 'type' => 1,
             ]);
