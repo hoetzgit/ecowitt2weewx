@@ -79,7 +79,7 @@ class EcowittExportCommand extends Command
                         'ousaite_session' => $session_id,
                     ], 'www.ecowitt.net')
                     ->asForm()
-                    ->post('https://webapi.www.ecowitt.net/index/get_data', [
+                    ->post('http://webapi.www.ecowitt.net/index/get_data', [
                         'device_id' => $deviceId,
                         'is_list' => 0,
                         'mode' => 0,
@@ -224,7 +224,7 @@ class EcowittExportCommand extends Command
      */
     protected function getSessionId()
     {
-        $response = Http::asForm()->post('https://webapi.www.ecowitt.net/user/site/login', [
+        $response = Http::asForm()->post('https://www.ecowitt.net/user/site/login', [
             'account' => $this->ecowitt_account,
             'password' => $this->ecowitt_passphrase,
             'authorize' => '',
@@ -247,7 +247,7 @@ class EcowittExportCommand extends Command
                 'ousaite_session' => $session_id,
             ], 'www.ecowitt.net')
             ->asForm()
-            ->post('https://webapi.www.ecowitt.net/index/get_devices', [
+            ->post('http://www.ecowitt.net/index/get_devices', [
                 'uid' => '',
                 'type' => 1,
             ]);
