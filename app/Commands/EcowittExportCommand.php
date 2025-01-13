@@ -79,7 +79,7 @@ class EcowittExportCommand extends Command
                         'ousaite_session' => $session_id,
                     ], 'www.ecowitt.net')
                     ->asForm()
-                    ->post('https://webapi.www.ecowitt.net/index/get_data', [
+                    ->post('https://www.ecowitt.net/index/get_data', [
                         'device_id' => $deviceId,
                         'is_list' => 0,
                         'mode' => 0,
@@ -143,15 +143,15 @@ class EcowittExportCommand extends Command
 
                 // wind_speed in m/s
                 $this->debug('fetch windspeedmph (kmh)');
-                $windSpeed = $this->getData($ecowitt, 'list.wind.list.windspeedmph'); // this key is called mph but units in data struct is kmh :/
+                $windSpeed = $this->getData($ecowitt, 'list.wind_speed.list.windspeedmph'); // this key is called mph but units in data struct is kmh :/
 
                 // windGust
                 $this->debug('fetch windgustmph (kmh)');
-                $windGust = $this->getData($ecowitt, 'list.wind.list.windgustmph');  // wind gust key called mph but units in data struct is kmh
+                $windGust = $this->getData($ecowitt, 'list.wind_speed.list.windgustmph');  // wind gust key called mph but units in data struct is kmh
 
                 // winddir in degree
                 $this->debug('fetch winddir');
-                $windDir = $this->getData($ecowitt, 'list.wind.list.winddir');
+                $windDir = $this->getData($ecowitt, 'list.winddir.list.winddir');
 
                 // pressure relative in hPa
                 $this->debug('fetch baromrelin');
@@ -224,7 +224,7 @@ class EcowittExportCommand extends Command
      */
     protected function getSessionId()
     {
-        $response = Http::asForm()->post('https://webapi.www.ecowitt.net/user/site/login', [
+        $response = Http::asForm()->post('https://www.ecowitt.net/user/site/login', [
             'account' => $this->ecowitt_account,
             'password' => $this->ecowitt_passphrase,
             'authorize' => '',
@@ -247,7 +247,7 @@ class EcowittExportCommand extends Command
                 'ousaite_session' => $session_id,
             ], 'www.ecowitt.net')
             ->asForm()
-            ->post('https://webapi.www.ecowitt.net/index/get_devices', [
+            ->post('https://www.ecowitt.net/index/get_devices', [
                 'uid' => '',
                 'type' => 1,
             ]);
