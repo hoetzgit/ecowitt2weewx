@@ -126,7 +126,7 @@ class EcowittExportCommand extends Command
                 $this->debug('fetch uv index');
                 $uvi = $this->getData($ecowitt, 'list.so_uv.list.uv');
 
-                //replace empty values with 0
+                // replace empty values with 0
                 foreach ($uvi as $key => $value) {
                     if (empty($value)) {
                         $uvi[$key] = '0';
